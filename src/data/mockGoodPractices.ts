@@ -1,0 +1,148 @@
+import { BoaPratica } from '@/types'
+
+const AGORA = new Date().toISOString()
+
+export const mockBoasPraticas: BoaPratica[] = [
+  {
+    id: 'bp-consultas-regulares',
+    slug: 'importancia-das-consultas-regulares',
+    titulo: 'Por que manter as consultas médicas em dia',
+    categoria: 'saude',
+    resumo: 'Consultas regulares ajudam a identificar problemas de saúde cedo, quando são mais fáceis de tratar.',
+    conteudo:
+      'Fazer check-ups regulares é uma das formas mais simples de cuidar da saúde ao longo dos anos. Muitos problemas, como pressão alta e diabetes, não apresentam sintomas claros no início, e o acompanhamento médico é o que permite identificá-los a tempo.',
+    passoAPasso: [
+      'Escolha uma Unidade Básica de Saúde ou clínica de sua confiança.',
+      'Anote suas dúvidas e sintomas antes da consulta, para não esquecer na hora.',
+      'Leve a lista de medicamentos que você toma atualmente.',
+      'Marque o retorno antes de sair do consultório, se for indicado.',
+    ],
+    dicas: [
+      'Peca para um familiar ou amigo acompanhar consultas importantes.',
+      'Guarde os exames em uma pasta, física ou digital, para levar sempre.',
+    ],
+    alertas: ['Nunca interrompa um tratamento por conta própria sem falar com o médico.'],
+    fontes: ['Ministério da Saúde', 'Organização Mundial da Saúde'],
+    criadoEm: AGORA,
+    atualizadoEm: AGORA,
+  },
+  {
+    id: 'bp-prevencao-quedas',
+    slug: 'prevencao-de-quedas-em-casa',
+    titulo: 'Como deixar a casa mais segura contra quedas',
+    categoria: 'saude',
+    resumo: 'Pequenos ajustes no ambiente doméstico reduzem bastante o risco de quedas.',
+    conteudo:
+      'Quedas são uma das principais causas de internação entre pessoas idosas, mas a maioria pode ser evitada com ajustes simples no ambiente da casa e alguns cuidados no dia a dia.',
+    passoAPasso: [
+      'Retire tapetes soltos ou fixe-os bem ao chao.',
+      'Instale barras de apoio no banheiro, perto do vaso e do chuveiro.',
+      'Melhore a iluminação de corredores e escadas.',
+      'Use calçados fechados, com solado antiderrapante, mesmo dentro de casa.',
+    ],
+    dicas: ['Mantenha objetos de uso frequente em locais de fácil alcance, sem precisar subir em bancos ou escadas.'],
+    alertas: ['Em caso de tontura frequente, procure atendimento médico: pode ser sinal de outro problema.'],
+    fontes: ['Ministério da Saúde'],
+    criadoEm: AGORA,
+    atualizadoEm: AGORA,
+  },
+  {
+    id: 'bp-caminhada-alongamento',
+    slug: 'caminhada-e-alongamento-no-dia-a-dia',
+    titulo: 'Caminhada e alongamento: começando com segurança',
+    categoria: 'atividade-fisica',
+    resumo: 'Movimentar o corpo regularmente melhora o equilíbrio, o humor e a disposição.',
+    conteudo:
+      'Não é preciso academia para se movimentar mais. Uma caminhada leve e alguns alongamentos, feitos com regularidade, já trazem benefícios para o equilíbrio, a força muscular e o bem-estar.',
+    passoAPasso: [
+      'Comece com caminhadas curtas, de 10 a 15 minutos, em local plano e seguro.',
+      'Aumente o tempo aos poucos, conforme o corpo for se adaptando.',
+      'Faça alongamentos leves antes e depois, sem forçar as articulações.',
+      'Beba água antes e depois da atividade.',
+    ],
+    dicas: ['Atividades em grupo, como caminhada com vizinhos ou em programas comunitários, ajudam a manter a constância.'],
+    alertas: ['Converse com um médico antes de iniciar uma nova atividade física, especialmente se houver alguma condição de saúde.'],
+    fontes: ['Organização Mundial da Saúde'],
+    criadoEm: AGORA,
+    atualizadoEm: AGORA,
+  },
+  {
+    id: 'bp-alimentacao-equilibrada',
+    slug: 'alimentacao-equilibrada-e-hidratacao',
+    titulo: 'Alimentação equilibrada e boa hidratação',
+    categoria: 'alimentacao',
+    resumo: 'Comer bem e beber água regularmente ajuda a manter energia, imunidade e saúde em dia.',
+    conteudo:
+      'Com o passar dos anos, o corpo pode sentir menos sede, mas a necessidade de água continua a mesma. Aliada a uma alimentação variada, a boa hidratação ajuda a manter a disposição e a saúde do corpo como um todo.',
+    passoAPasso: [
+      'Inclua frutas, verduras e legumes nas principais refeições.',
+      'Prefira água a refrigerantes e sucos industrializados.',
+      'Mantenha uma garrafa de água por perto e beba pequenos goles ao longo do dia.',
+      'Evite excesso de sal e alimentos ultraprocessados.',
+    ],
+    dicas: ['Se tiver dificuldade para mastigar, procure um dentista: isso pode estar limitando sua alimentação sem você perceber.'],
+    alertas: ['Pessoas com restrições alimentares (diabetes, hipertensão, etc.) devem seguir orientação nutricional específica.'],
+    fontes: ['Ministério da Saúde'],
+    criadoEm: AGORA,
+    atualizadoEm: AGORA,
+  },
+  {
+    id: 'bp-combate-isolamento',
+    slug: 'combate-ao-isolamento-social',
+    titulo: 'A importância da convivência para a saúde mental',
+    categoria: 'saude-mental',
+    resumo: 'Manter contato social regular protege a saúde mental e a memória.',
+    conteudo:
+      'O isolamento social pode afetar o humor, a memória e até a saúde física. Participar de grupos, atividades comunitárias e manter contato com familiares e amigos são formas simples de cuidar da saúde mental.',
+    passoAPasso: [
+      'Escolha uma atividade em grupo que combine com seu interesse: dança, jogos, artesanato ou caminhada.',
+      'Comece participando uma vez por semana, sem compromisso de frequência total.',
+      'Convide um vizinho ou amigo para ir junto na primeira vez.',
+    ],
+    dicas: ['Atividades que estimulam a mente, como jogos de memória e leitura, também ajudam a manter a cabeça ativa.'],
+    alertas: ['Sinais de tristeza persistente ou perda de interesse por longos períodos merecem conversa com um profissional de saúde.'],
+    fontes: ['Organização Mundial da Saúde'],
+    criadoEm: AGORA,
+    atualizadoEm: AGORA,
+  },
+  {
+    id: 'bp-golpes-whatsapp-pix',
+    slug: 'como-identificar-golpes-whatsapp-e-pix',
+    titulo: 'Como identificar golpes no WhatsApp e no Pix',
+    categoria: 'seguranca-digital',
+    resumo: 'Golpistas costumam criar urgência falsa para conseguir dinheiro ou senhas. Saber reconhecer os sinais protege você.',
+    conteudo:
+      'Golpes que usam WhatsApp e Pix têm crescido nos últimos anos, muitas vezes se passando por familiares, bancos ou órgãos oficiais. Reconhecer os sinais de alerta é a melhor defesa.',
+    passoAPasso: [
+      'Desconfie de mensagens urgentes pedindo dinheiro, mesmo que pareçam vir de um familiar.',
+      'Ligue para a pessoa por telefone para confirmar, antes de fazer qualquer pagamento.',
+      'Nunca informe senhas, códigos recebidos por SMS ou dados do cartão por telefone ou mensagem.',
+      'Bancos nunca pedem para você instalar aplicativos de acesso remoto para "resolver um problema".',
+    ],
+    dicas: ['Salve o número oficial do seu banco e ligue apenas para ele em caso de dúvida.'],
+    alertas: ['Se já caiu em um golpe, procure a delegacia mais próxima e entre em contato com seu banco imediatamente.'],
+    fontes: ['Banco Central do Brasil'],
+    criadoEm: AGORA,
+    atualizadoEm: AGORA,
+  },
+  {
+    id: 'bp-organizacao-medicamentos',
+    slug: 'organizacao-de-medicamentos-e-documentos',
+    titulo: 'Organizando medicamentos e documentos importantes',
+    categoria: 'autonomia',
+    resumo: 'Um pouco de organização facilita o dia a dia e evita esquecimentos importantes.',
+    conteudo:
+      'Manter medicamentos e documentos organizados ajuda a manter a autonomia e evita erros, como tomar uma dose a mais ou esquecer um documento importante em uma consulta.',
+    passoAPasso: [
+      'Use uma caixa organizadora de comprimidos, separada por dia da semana e horário.',
+      'Mantenha uma lista atualizada de todos os medicamentos, com dose e horário.',
+      'Guarde documentos importantes (RG, cartão do SUS, carteirinha do convênio) em uma pasta única, fácil de levar.',
+      'Anote contatos de emergência em um papel visível em casa, além de salvar no celular.',
+    ],
+    dicas: ['Peca para um familiar revisar a lista de medicamentos de tempos em tempos.'],
+    alertas: ['Nunca compartilhe seus medicamentos com outras pessoas, mesmo que os sintomas pareçam parecidos.'],
+    fontes: ['Ministério da Saúde'],
+    criadoEm: AGORA,
+    atualizadoEm: AGORA,
+  },
+]

@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-cream text-ink font-sans text-base antialiased;
+}
+
+/* Controles de acessibilidade: tamanho de texto */
+html[data-text-size='grande'] body { font-size: 1.15rem; }
+html[data-text-size='muito-grande'] body { font-size: 1.32rem; }
+
+/* Alto contraste */
+html[data-contrast='alto'] body {
+  background: #FFFFFF;
+  color: #000000;
+}
+html[data-contrast='alto'] a { text-decoration: underline; }
+html[data-contrast='alto'] .card-surface {
+  border: 2px solid #000000 !important;
+}
+
+/* Reduzir animacoes */
+html[data-motion='reduzido'] *,
+html[data-motion='reduzido'] *::before,
+html[data-motion='reduzido'] *::after {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+  scroll-behavior: auto !important;
+}
+
+/* Foco visivel sempre, essencial para navegacao por teclado */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid #C9642B;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.card-surface {
+  @apply bg-white border border-pampa-100 rounded-xl2 shadow-[0_2px_10px_rgba(18,59,57,0.06)];
+}
+
+.container-page {
+  @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  background: #123B39;
+  color: white;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0 0 0.5rem 0;
+}
+.skip-link:focus {
+  left: 0;
+}
