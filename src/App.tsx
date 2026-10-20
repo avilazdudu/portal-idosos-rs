@@ -3,6 +3,7 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import Home from '@/pages/Home'
 import Programs from '@/pages/Programs'
+import MapPage from '@/pages/MapPage'
 import ProgramDetails from '@/pages/ProgramDetails'
 import GoodPractices from '@/pages/GoodPractices'
 import GoodPracticeDetails from '@/pages/GoodPracticeDetails'
@@ -26,6 +27,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/programas" element={<Programs />} />
           <Route path="/programas/:slug" element={<ProgramDetails />} />
+          <Route path="/mapa" element={<MapPage />} />
           <Route path="/boas-praticas" element={<GoodPractices />} />
           <Route path="/boas-praticas/:slug" element={<GoodPracticeDetails />} />
           <Route path="/login" element={<Login />} />

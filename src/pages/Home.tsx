@@ -167,6 +167,12 @@ export default function Home() {
               Ver programas em {regiaoEscolhida}
             </button>
           )}
+          <Link
+            to="/mapa"
+            className="mt-6 block w-fit rounded-lg border-2 border-pampa-400 px-6 py-4 text-xl font-semibold text-cream hover:bg-pampa-800"
+          >
+            Abrir o mapa de atividades
+          </Link>
         </div>
       </section>
     </div>

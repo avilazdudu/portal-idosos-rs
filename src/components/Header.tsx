@@ -1,15 +1,16 @@
 import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
-import { Menu, X, HeartHandshake, LogOut } from 'lucide-react'
+import { Menu, X, HeartHandshake, LogOut, MapPin } from 'lucide-react'
 import { useAuth } from '@/contexts/AuthContext'
 import AccessibilityControls from '@/components/AccessibilityControls'
 
 const links = [
-  { to: '/', label: 'Início' },
-  { to: '/programas', label: 'Programas' },
-  { to: '/boas-praticas', label: 'Boas práticas' },
-  { to: '/favoritos', label: 'Favoritos' },
-  { to: '/minha-conta', label: 'Minha conta' },
+  { to: '/', label: 'Início', mostrarIcone: false },
+  { to: '/programas', label: 'Programas', mostrarIcone: false },
+  { to: '/mapa', label: 'Mapa de atividades', mostrarIcone: true },
+  { to: '/boas-praticas', label: 'Boas práticas', mostrarIcone: false },
+  { to: '/favoritos', label: 'Favoritos', mostrarIcone: false },
+  { to: '/minha-conta', label: 'Minha conta', mostrarIcone: false },
 ]
 
 export default function Header() {
@@ -18,7 +19,14 @@ export default function Header() {
 
   return (
     <header className="border-b border-pampa-100 bg-white">
-      <div className="container-page flex h-20 items-center justify-between gap-4">
+      {/* Faixa de acessibilidade (telas largas). No celular os controles ficam dentro do menu. */}
+      <div className="hidden border-b border-pampa-100 bg-pampa-50 xl:block">
+        <div className="mx-auto flex w-full max-w-7xl justify-end px-4 py-2 sm:px-6 lg:px-8">
+          <AccessibilityControls />
+        </div>
+      </div>
+
+      <div className="mx-auto flex h-20 w-full max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
         <Link to="/" className="flex items-center gap-2 text-pampa-700" onClick={() => setMenuAberto(false)}>
           <HeartHandshake className="h-8 w-8 shrink-0" aria-hidden="true" />
           <span className="text-xl font-bold leading-tight">
@@ -27,24 +35,24 @@ export default function Header() {
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-1 lg:flex" aria-label="Navegação principal">
+        <nav className="hidden items-center gap-1 xl:flex" aria-label="Navegação principal">
           {links.map((link) => (
             <NavLink
               key={link.to}
               to={link.to}
               className={({ isActive }) =>
-                `rounded-lg px-4 py-3 text-lg font-medium transition-colors ${
+                `flex items-center gap-1.5 rounded-lg px-3 py-3 text-lg font-medium transition-colors ${
                   isActive ? 'bg-pampa-50 text-pampa-700' : 'text-ink-soft hover:bg-cream-deep'
                 }`
               }
             >
+              {link.mostrarIcone && <MapPin className="h-5 w-5 shrink-0" aria-hidden="true" />}
               {link.label}
             </NavLink>
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 lg:flex">
-          <AccessibilityControls />
+        <div className="hidden items-center gap-3 xl:flex">
           {usuario ? (
             <div className="flex items-center gap-2">
               <span className="text-lg font-medium text-ink-soft">Olá, {usuario.nome.split(' ')[0]}</span>
@@ -72,7 +80,7 @@ export default function Header() {
         </div>
 
         <button
-          className="rounded-lg p-2 text-pampa-700 lg:hidden"
+          className="rounded-lg p-2 text-pampa-700 xl:hidden"
           onClick={() => setMenuAberto((v) => !v)}
           aria-expanded={menuAberto}
           aria-label={menuAberto ? 'Fechar menu' : 'Abrir menu'}
@@ -82,7 +90,7 @@ export default function Header() {
       </div>
 
       {menuAberto && (
-        <div className="border-t border-pampa-100 bg-white lg:hidden">
+        <div className="border-t border-pampa-100 bg-white xl:hidden">
           <nav className="container-page flex flex-col gap-1 py-4" aria-label="Navegação principal (celular)">
             {links.map((link) => (
               <NavLink
@@ -90,9 +98,12 @@ export default function Header() {
                 to={link.to}
                 onClick={() => setMenuAberto(false)}
                 className={({ isActive }) =>
-                  `rounded-lg px-4 py-3 text-lg font-medium ${isActive ? 'bg-pampa-50 text-pampa-700' : 'text-ink-soft'}`
+                  `flex items-center gap-2 rounded-lg px-4 py-3 text-lg font-medium ${
+                    isActive ? 'bg-pampa-50 text-pampa-700' : 'text-ink-soft'
+                  }`
                 }
               >
+                {link.mostrarIcone && <MapPin className="h-5 w-5 shrink-0" aria-hidden="true" />}
                 {link.label}
               </NavLink>
             ))}

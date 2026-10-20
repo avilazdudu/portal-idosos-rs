@@ -1,0 +1,8 @@
+[
+  { "id": "loc-sesc-taquara", "nome": "Sesc Taquara", "endereco": "Rua Júlio de Castilhos, 2843", "municipio": "Taquara" },
+  { "id": "loc-sesc-sao-leopoldo", "nome": "Sesc São Leopoldo", "endereco": "Rua Marquês do Herval, 827", "municipio": "São Leopoldo" },
+  { "id": "loc-sesc-camaqua", "nome": "Sesc Camaquã", "endereco": "Rua Marcírio Dias Longaray, 01", "municipio": "Camaquã" },
+  { "id": "loc-sesc-vacaria", "nome": "Sesc Vacaria", "endereco": "Av. Moreira Paz, 264", "municipio": "Vacaria" },
+  { "id": "loc-sesc-protasio-alves", "nome": "Sesc Protásio Alves", "endereco": "Av. Protásio Alves, 6220", "municipio": "Porto Alegre" },
+  { "id": "loc-sesc-senac-sobradinho", "nome": "Unidade Sesc/Senac Sobradinho", "endereco": "Rua Lino Lazzari, 91", "municipio": "Sobradinho" }
+]

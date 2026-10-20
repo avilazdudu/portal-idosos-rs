@@ -108,6 +108,49 @@ create policy "Programas ativos são públicos"
 -- Escrita em programs: somente administradores (ver seção "Administradores" no final deste arquivo).
 
 -- ----------------------------------------------------------------------------
+-- program_locations: locais físicos de atendimento (um programa pode ter vários)
+-- Alimenta o mapa (/mapa). Um local só vira marcador quando tem coordenadas E
+-- location_verified_at preenchido (alguém conferiu a posição). Nunca preencha
+-- coordenadas "de cabeça" nem use o centro da cidade como se fosse o endereço.
+-- ----------------------------------------------------------------------------
+create table if not exists public.program_locations (
+  id uuid primary key default gen_random_uuid(),
+  program_id uuid not null references public.programs(id) on delete cascade,
+  name text,
+  address text,
+  city text not null,
+  state text not null default 'RS',
+  postal_code text,
+  latitude double precision,
+  longitude double precision,
+  location_source text,
+  location_verified_at timestamptz,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now(),
+  constraint coordenadas_em_par check ((latitude is null) = (longitude is null)),
+  -- No RS, latitude/longitude fora desta caixa quase sempre indicam valores trocados ou digitados errado.
+  constraint coordenadas_dentro_do_rs check (
+    state <> 'RS'
+    or latitude is null
+    or (latitude between -33.75 and -27.08 and longitude between -57.65 and -49.69)
+  ),
+  constraint verificado_exige_coordenadas_e_fonte check (
+    location_verified_at is null
+    or (latitude is not null and nullif(btrim(location_source), '') is not null)
+  )
+);
+
+create index if not exists program_locations_program_id_idx on public.program_locations (program_id);
+
+alter table public.program_locations enable row level security;
+
+create policy "Locais de programas ativos são públicos"
+  on public.program_locations for select
+  using (exists (select 1 from public.programs p where p.id = program_id and p.is_active));
+
+-- (a policy de escrita para administradores fica na seção "Administradores", no final do arquivo)
+
+-- ----------------------------------------------------------------------------
 -- good_practices: conteúdos educativos
 -- ----------------------------------------------------------------------------
 create table if not exists public.good_practices (
@@ -223,6 +266,11 @@ $$;
 
 create policy "Admins gerenciam programas"
   on public.programs for all
+  using (public.is_admin())
+  with check (public.is_admin());
+
+create policy "Admins gerenciam locais de programas"
+  on public.program_locations for all
   using (public.is_admin())
   with check (public.is_admin());
 

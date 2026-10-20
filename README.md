@@ -7,7 +7,7 @@ de inscrição das instituições responsáveis.
 
 ## Stack
 
-React 18 + TypeScript + Vite + Tailwind CSS + React Router + Supabase + lucide-react.
+React 18 + TypeScript + Vite + Tailwind CSS + React Router + Supabase + lucide-react + Leaflet (mapa).
 Toda comunicação com o backend fica isolada em `src/services`.
 
 ## Rodando o projeto
@@ -46,6 +46,12 @@ O selo 🟢 / 🟡 / 🔴 de cada programa é calculado a partir da fonte oficia
 última verificação e do status. Veja as regras, o checklist e exemplos em
 [`docs/VERIFICACAO.md`](docs/VERIFICACAO.md).
 
+## Mapa de atividades
+
+A página `/mapa` mostra os locais de atendimento num mapa (Leaflet + OpenStreetMap), com geolocalização,
+filtros por proximidade e botão "Como chegar" para o Google Maps. Só aparecem marcadores de locais com posição
+verificada. Veja [`docs/MAPA.md`](docs/MAPA.md).
+
 ## Situação dos programas
 
 Para desativar um programa ou avisar que está indisponível ou com inscrições fechadas, veja
@@ -67,6 +73,9 @@ supabase/
 docs/
   VERIFICACAO.md
   SITUACAO.md
+  MAPA.md
+scripts/
+  sugerir-coordenadas.mjs   sugestões de coordenadas para revisão humana
 ```
 
 ## O que já funciona

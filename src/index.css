@@ -71,3 +71,38 @@ textarea:focus-visible,
 .skip-link:focus {
   left: 0;
 }
+
+/* ---- Mapa (Leaflet) ---- */
+/* O reset do Tailwind (img { max-width: 100% }) quebra as peças do mapa; este bloco corrige. */
+.leaflet-container .leaflet-pane img,
+.leaflet-container .leaflet-tile,
+.leaflet-container .leaflet-marker-icon,
+.leaflet-container .leaflet-marker-shadow {
+  max-width: none !important;
+  max-height: none !important;
+}
+.leaflet-container {
+  font-family: inherit;
+}
+.marcador-atividade {
+  background: transparent;
+  border: none;
+}
+.leaflet-popup-content-wrapper {
+  border-radius: 1rem;
+}
+.leaflet-popup-content {
+  margin: 16px;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+.leaflet-popup-content p {
+  margin: 0;
+}
+/* Botão de fechar o balão maior, mais fácil de tocar */
+.leaflet-container a.leaflet-popup-close-button {
+  width: 44px;
+  height: 44px;
+  font-size: 28px;
+  line-height: 44px;
+}

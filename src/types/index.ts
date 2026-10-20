@@ -120,3 +120,63 @@ export interface FiltrosPrograma {
   gratuidade?: Gratuidade
   acessibilidade?: (keyof AcessibilidadeInfo)[]
 }
+
+// ---------------------------------------------------------------------------
+// Mapa e localização
+// ---------------------------------------------------------------------------
+
+export interface Coordenadas {
+  latitude: number
+  longitude: number
+}
+
+/**
+ * Um local físico de atendimento de um programa. Um programa pode ter vários locais
+ * (ex.: várias unidades). Espelha a tabela program_locations de supabase/schema.sql.
+ * Coordenadas só contam para o mapa quando localizacaoVerificadaEm está preenchida.
+ */
+export interface LocalAtendimento {
+  id: string
+  programaId: string
+  nome?: string // ex.: "Sesc Taquara"
+  endereco?: string
+  municipio: string
+  estado: string
+  cep?: string
+  latitude?: number
+  longitude?: number
+  fonteLocalizacao?: string // de onde vieram o endereço/as coordenadas
+  localizacaoVerificadaEm?: string // ISO date
+}
+
+export type ModoDeslocamento = 'carro' | 'a_pe' | 'transporte_publico'
+export type TipoReferencia = 'usuario' | 'municipio' | 'endereco'
+export type DistanciaKm = 5 | 10 | 25 | 50
+
+/** Ponto usado para calcular proximidade (posição do usuário, município ou endereço pesquisado). */
+export interface PontoReferencia extends Coordenadas {
+  tipo: TipoReferencia
+  rotulo: string
+  precisaoMetros?: number
+}
+
+export interface FiltrosMapa {
+  busca?: string
+  categoria?: CategoriaSlug
+  distanciaKm: DistanciaKm | null
+  apenasGratuitas: boolean
+  apenasPresenciais: boolean
+  apenasMinhasCategorias: boolean
+}
+
+export interface AtividadeNoMapa {
+  local: LocalAtendimento
+  programa: Programa
+  /** Preenchido somente quando o local tem coordenadas válidas E verificadas. */
+  coordenadas: Coordenadas | null
+  /** Distância em linha reta (estimativa) até o ponto de referência, quando existe. */
+  distanciaKm?: number
+  combinaComPreferencias: boolean
+}
+
+export type AtividadeMapeavel = AtividadeNoMapa & { coordenadas: Coordenadas }

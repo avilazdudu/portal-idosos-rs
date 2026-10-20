@@ -15,6 +15,7 @@ export default function Footer() {
           <p className="text-lg font-semibold">Navegação</p>
           <ul className="mt-3 space-y-2 text-pampa-100">
             <li><Link to="/programas" className="hover:underline">Programas</Link></li>
+            <li><Link to="/mapa" className="hover:underline">Mapa de atividades</Link></li>
             <li><Link to="/boas-praticas" className="hover:underline">Boas práticas</Link></li>
             <li><Link to="/favoritos" className="hover:underline">Favoritos</Link></li>
             <li><Link to="/preferencias" className="hover:underline">Minhas preferências</Link></li>
