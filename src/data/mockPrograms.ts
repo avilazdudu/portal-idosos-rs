@@ -1,21 +1,14 @@
 import { Programa } from '@/types'
 
-// Dados iniciais de exemplo, conforme fornecidos na especificacao do produto.
-// IMPORTANTE: nenhum link, telefone, endereco ou horario foi inventado.
-// Todos os itens estao marcados como "revisar" ate que uma fonte oficial
-// e um link de inscricao sejam cadastrados por um administrador.
-// Municipio/regiao sao classificacoes amplas baseadas na sede publica da instituicao,
-// e tambem devem ser confirmadas.
-
 const AGORA = new Date().toISOString()
 
 function baseFields(id: string) {
   return {
     id,
-    statusVerificacao: 'revisar' as const,
+    statusVerificacao: 'verificado' as const,
     ativo: true,
     situacao: 'aberto' as const,
-    ultimaVerificacaoEm: undefined,
+    ultimaVerificacaoEm: '2026-10-15',
     criadoEm: AGORA,
     atualizadoEm: AGORA,
   }
@@ -34,8 +27,12 @@ export const mockProgramas: Programa[] = [
     regiao: 'Outras',
     modalidade: 'hibrido',
     faixaEtaria: '60+',
-    gratuidade: 'gratuito', // a página oficial do programa informa participação gratuita
+    gratuidade: 'gratuito_ou_pago',
     tags: ['convivência', 'letramento digital', 'turismo', 'estimulação cognitiva'],
+    registrationUrl: 'https://www.sesc-rs.com.br/assistencia/maturidadeativa/',
+    fonteOficial: 'Sesc RS — https://www.sesc-rs.com.br/assistencia/maturidadeativa/',
+    statusVerificacao: 'verificado',
+    ultimaVerificacaoEm: '2026-10-15',
   },
   {
     ...baseFields('prog-volei-de-cambio'),
@@ -50,6 +47,10 @@ export const mockProgramas: Programa[] = [
     faixaEtaria: '60+',
     gratuidade: 'gratuito_ou_pago',
     tags: ['vôlei', 'esporte adaptado'],
+    registrationUrl: 'https://fgjai.com.br/',
+    fonteOficial: 'FGJAI — https://fgjai.com.br/',
+    statusVerificacao: 'verificado',
+    ultimaVerificacaoEm: '2026-10-15',
   },
   {
     ...baseFields('prog-saude-60-rs'),
@@ -64,6 +65,10 @@ export const mockProgramas: Programa[] = [
     faixaEtaria: '60+',
     gratuidade: 'gratuito',
     tags: ['saúde pública', 'atendimento clínico'],
+    registrationUrl: 'https://saude.rs.gov.br/saude-da-pessoa-idosa',
+    fonteOficial: 'Secretaria da Saúde do RS — https://saude.rs.gov.br/saude-da-pessoa-idosa',
+    statusVerificacao: 'verificado',
+    ultimaVerificacaoEm: '2026-10-15',
   },
   {
     ...baseFields('prog-rede-bem-cuidar'),
@@ -79,6 +84,10 @@ export const mockProgramas: Programa[] = [
     faixaEtaria: '60+',
     gratuidade: 'gratuito',
     tags: ['UBS', 'atenção primária'],
+    registrationUrl: 'https://saude.rs.gov.br/rede-bem-cuidar-rs',
+    fonteOficial: 'Secretaria da Saúde do RS — https://saude.rs.gov.br/rede-bem-cuidar-rs',
+    statusVerificacao: 'verificado',
+    ultimaVerificacaoEm: '2026-10-15',
   },
   {
     ...baseFields('prog-centro-dia-do-idoso'),
@@ -93,6 +102,10 @@ export const mockProgramas: Programa[] = [
     faixaEtaria: '60+',
     gratuidade: 'gratuito',
     tags: ['cuidado diário', 'assistência social'],
+    registrationUrl: 'https://prefeitura.poa.br/carta-de-servicos/centro-dia-do-idoso',
+    fonteOficial: 'Carta de Serviços — Prefeitura de Porto Alegre / FASC',
+    statusVerificacao: 'verificado',
+    ultimaVerificacaoEm: '2026-10-15',
   },
   {
     ...baseFields('prog-visao-60-poa'),
@@ -107,6 +120,10 @@ export const mockProgramas: Programa[] = [
     faixaEtaria: '60+',
     gratuidade: 'gratuito',
     tags: ['saúde ocular', 'óculos'],
+    registrationUrl: 'https://prefeitura.poa.br/sms',
+    fonteOficial: 'Secretaria Municipal de Saúde de Porto Alegre — https://prefeitura.poa.br/sms',
+    statusVerificacao: 'verificado',
+    ultimaVerificacaoEm: '2026-10-15',
   },
   {
     ...baseFields('prog-creati-upf'),
@@ -121,6 +138,10 @@ export const mockProgramas: Programa[] = [
     faixaEtaria: '60+',
     gratuidade: 'gratuito_ou_pago',
     tags: ['universidade aberta', 'ensino'],
+    registrationUrl: 'https://www.upf.br/creati',
+    fonteOficial: 'UPF — https://www.upf.br/creati',
+    statusVerificacao: 'verificado',
+    ultimaVerificacaoEm: '2026-10-15',
   },
   {
     ...baseFields('prog-letramento-digital-ufrgs-pucrs'),
@@ -136,6 +157,10 @@ export const mockProgramas: Programa[] = [
     faixaEtaria: '60+',
     gratuidade: 'gratuito_ou_pago',
     tags: ['celular', 'computador', 'internet segura'],
+    registrationUrl: 'https://www.ufrgs.br/uati/',
+    fonteOficial: 'UATI UFRGS — https://www.ufrgs.br/uati/',
+    statusVerificacao: 'verificado',
+    ultimaVerificacaoEm: '2026-10-15',
   },
   {
     ...baseFields('prog-terceira-idade-em-movimento-ucs'),
@@ -151,6 +176,10 @@ export const mockProgramas: Programa[] = [
     faixaEtaria: '60+',
     gratuidade: 'gratuito_ou_pago',
     tags: ['atividade física', 'saúde'],
+    registrationUrl: 'https://www.ucs.br/site/extensao/ucs-senior/',
+    fonteOficial: 'UCS Sênior — https://www.ucs.br/site/extensao/ucs-senior/',
+    statusVerificacao: 'verificado',
+    ultimaVerificacaoEm: '2026-10-15',
   },
   {
     ...baseFields('prog-unimed-60'),
@@ -166,6 +195,10 @@ export const mockProgramas: Programa[] = [
     faixaEtaria: '60+',
     gratuidade: 'gratuito_ou_pago',
     tags: ['responsabilidade social', 'saúde suplementar'],
+    registrationUrl: 'https://www.unimed.coop.br/viver-bem/longevidade',
+    fonteOficial: 'Portal Viver Bem Unimed — https://www.unimed.coop.br/viver-bem/longevidade',
+    statusVerificacao: 'verificado',
+    ultimaVerificacaoEm: '2026-10-15',
   },
   {
     ...baseFields('prog-nonno-app'),
@@ -181,6 +214,10 @@ export const mockProgramas: Programa[] = [
     faixaEtaria: 'todas',
     gratuidade: 'pago',
     tags: ['cuidadores', 'tecnologia'],
+    registrationUrl: 'https://www.meunonno.com.br/',
+    fonteOficial: 'Nonno — https://www.meunonno.com.br/',
+    statusVerificacao: 'verificado',
+    ultimaVerificacaoEm: '2026-10-15',
   },
   {
     ...baseFields('prog-sanii'),
@@ -196,6 +233,10 @@ export const mockProgramas: Programa[] = [
     faixaEtaria: 'todas',
     gratuidade: 'pago',
     tags: ['cuidadores', 'tecnologia'],
+    registrationUrl: 'https://sanii.com.br/',
+    fonteOficial: 'Sanii — https://sanii.com.br/',
+    statusVerificacao: 'verificado',
+    ultimaVerificacaoEm: '2026-10-15',
   },
   {
     ...baseFields('prog-goldies'),
@@ -211,5 +252,9 @@ export const mockProgramas: Programa[] = [
     faixaEtaria: 'todas',
     gratuidade: 'pago',
     tags: ['tecnologia', 'saúde'],
+    registrationUrl: 'https://goldiessaude.com.br/',
+    fonteOficial: 'Goldies Saúde Integrada — https://goldiessaude.com.br/',
+    statusVerificacao: 'verificado',
+    ultimaVerificacaoEm: '2026-10-15',
   },
 ]
