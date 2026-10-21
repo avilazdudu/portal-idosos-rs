@@ -14,10 +14,12 @@ import Favorites from '@/pages/Favorites'
 import MyAccount from '@/pages/MyAccount'
 import NotFound from '@/pages/NotFound'
 import ProtectedRoute from '@/components/ProtectedRoute'
+import ScrollToTop from '@/components/ScrollToTop'
 
 export default function App() {
   return (
     <div className="flex min-h-screen flex-col">
+      <ScrollToTop />
       <a href="#conteudo-principal" className="skip-link">
         Pular para o conteúdo principal
       </a>
