@@ -249,7 +249,7 @@ export default function ActivityMap({
               title={`${a.programa.nome} — ${a.local.municipio}`}
               eventHandlers={{ click: () => onSelecionar(a.local.id) }}
             >
-              <Popup minWidth={260} maxWidth={340}>
+              <Popup minWidth={270} maxWidth={300} maxHeight={280}>
                 <ActivityPopup atividade={a} modo={modo} referencia={referencia} />
               </Popup>
             </Marker>

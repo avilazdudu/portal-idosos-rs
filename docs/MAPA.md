@@ -60,7 +60,7 @@ insert into public.program_locations
   (program_id, name, address, city, state, latitude, longitude, location_source, location_verified_at)
 values
   ('<uuid do programa>', 'Sesc Exemplo', 'Rua Exemplo, 123', 'Cidade', 'RS',
-   -30.0000, -51.0000,                                  -- valores fictícios: use os conferidos
+   -30.0000, -51.0000,                                
    'Endereço no site oficial; posição conferida no Google Maps em 2026-10-19', now());
 ```
 O banco recusa coordenadas fora do RS, latitude sem longitude e "verificado" sem fonte.

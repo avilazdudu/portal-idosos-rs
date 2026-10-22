@@ -89,20 +89,19 @@ textarea:focus-visible,
   border: none;
 }
 .leaflet-popup-content-wrapper {
-  border-radius: 1rem;
+  border-radius: 0.875rem;
 }
 .leaflet-popup-content {
-  margin: 16px;
+  margin: 12px 14px;
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 1.4;
 }
 .leaflet-popup-content p {
   margin: 0;
 }
-/* Botão de fechar o balão maior, mais fácil de tocar */
 .leaflet-container a.leaflet-popup-close-button {
-  width: 44px;
-  height: 44px;
-  font-size: 28px;
-  line-height: 44px;
+  width: 36px;
+  height: 36px;
+  font-size: 24px;
+  line-height: 36px;
 }
